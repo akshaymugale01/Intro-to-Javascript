@@ -1,0 +1,8 @@
+If Your are using VsCode Then You'll Need to Install Prompt!
+
+Step 1: Go to terminal and type - npm install prompt-sync
+Step 2: Enter And it will install prompt librabries in 'current' js file
+Step 3: Write code in js at Top or anywhere you want to run prompt from- const prompt  = require('prompt-sync')();
+Step 4: The Go for it! :)  ex- let name = prompt("Enter Your name :") 
+
+**Tip - + use for prompt whenever your using numbers..
