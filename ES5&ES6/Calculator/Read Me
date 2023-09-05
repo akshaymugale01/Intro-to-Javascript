@@ -1,1 +1,5 @@
 Here calculator using es5 and Es6
+
+// Connect using - npm -y init in terminal
+// This will create package.json file in that file after main line no 5 
+// "type" : "module" enter.
