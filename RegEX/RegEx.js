@@ -218,9 +218,85 @@ console.log(rgex.test("abbbbc")); //true
 console.log(rgex.test("abbbbbc")); //false
 
 
+/*
+Bracket Epression
+ex - const regex = /[A-Z]/
+Notice that A-Z is inside the square brackets so this will search for all uppercase letters in the alphabet
+
+.[a-z] matches a string that has all lowercase letters in the entire alphabet
+.[A-Z] matches a string that has all the uppercase letters in the entire alphabet
+.[abcd] matches a string that has a, b, c, d
+.[a-d] exactly the same as the previous example so you can either specify each character or group them
+.[a-gA-C0-7] matches string that has lowercase letters a-g, uppercase letters A-C, or numbers 0-7
+.[^a-zA-Z] matches a string that DOES NOT have all lowercase or uppercase letters
+
+Inside a character set, the ^ character means all the characters that are NOT in the a-z or A-Z
+*/
+
+/*
+Boundry Assertion
+^ = Matches the beginning of input. If the multiline flag is set to true, also matches immediately after a line break character. For example, 
+/^A/ does not match the "A" in "an A", but does match the first "A" in "An A".
+
+$=Matches the end of input. If the multiline flag is set to true, also matches immediately before a line break character. For example,
+ /t$/ does not match the "t" in "eater", but does match it in "eat"
+
+\b=  Matches a word boundary. This is the position where a word character is not followed or preceded by another word-character, such as between a letter and a space.
+For Example:  /\bm/ matches the "m" in "moon".
+
+\B =Matches a non-word boundary. This is a position where the previous and next character are of the same type: Either both must be words, or both must be non-words, 
+  for example between two letters or between two spaces. For example, /\Bon/ matches "on" in "at noon", and /ye\B/ matches "ye" in "possibly yesterday".
+*/
+
+
+
 //BUG
 // Debugg - make it error free
 
-debugger;
+//Debugging JavaScript is the process of finding and resolving bugs in JavaScript code. The browser offers a number of tools to aid developers in the real-time debugging of JavaScript code
+
+debugger; //Developers can halt the execution of a program at a specified point by adding a breakpoint to their code. This enables developers to traverse through 
+  //the code line by line and inspect its present state.
 // Break Point
 
+function foo() {
+  const x = 42;
+  debugger; // Adds a breakpoint here
+  console.log(x);
+}
+
+foo();  // output 42
+
+
+/*
+Watches: A watch feature enables programmers to keep track of a particular variable or expression's value in real time. 
+This enables programmers to track changes in a variable's value and troubleshoot intricate expressions.
+
+ - To add a watch, locate the file you wish to debug, select the "Sources" tab in the developer tools of the browser, and then right-click on
+ the variable or expression you want to watch. Choose "Add to Watch" after that
+*/
+const x = 42;
+const y = 7;
+const z = x + y; // Add a watch for "z"
+console.log(z); //49 
+
+/**
+Call Stack: A feature that shows the present state of the program, along with all the functions that have been called and their arguments, is called the call stack. 
+This enables programmers to track the program's route during execution and locate the error
+*/
+
+function foo() {
+  bar();
+}
+
+function bar() {
+  baz();
+}
+
+function baz() {
+  throw new Error('Uh oh!');
+}
+foo();
+
+// Output
+Uncaught Error: Uh oh!
